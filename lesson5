@@ -1,0 +1,73 @@
+Console.WriteLine("Enter how many students");
+string input = Console.ReadLine();
+int.TryParse(input, out int count);
+
+List<(string Name, int Score)> students = new List<(string Name, int Score)>();
+
+while (count > 0)
+{
+
+    Console.WriteLine("Enter students name");
+    string name = Console.ReadLine();
+    Console.WriteLine("Enter students score");
+    string input1 = Console.ReadLine();
+    int.TryParse(input1, out int score);
+    students.Add((name, score));
+    count--;
+}
+
+
+//Average score
+int ScoreSum = 0;
+for (int i = 0; i < students.Count; i++)
+{
+
+    ScoreSum += students[i].Score;
+}
+
+Console.WriteLine("Average score is " + ScoreSum / students.Count);
+
+
+//Max score
+int MaxScore = 0;
+for (int i = 0; i < students.Count; i++)
+{
+    if (students[i].Score > MaxScore)
+    {
+         MaxScore = students[i].Score;
+    }
+}
+Console.WriteLine("Max score is" + MaxScore);
+
+// Min score
+int MinScore = students[0].Score;
+for (int i = 0; i < students.Count; i++)
+{
+    if (students[i].Score < MinScore)
+    {
+         MinScore = students[i].Score;
+    }
+}
+Console.WriteLine("Min score is" + MinScore);
+
+//Max scores
+List<(string Name, int Score)> MaxScores = new List<(string Name, int Score)>();
+
+for (int i = 0; i < students.Count; i++)
+{
+    if (students[i].Score > 60)
+    {
+        MaxScores.Add((students[i].Name, students[i].Score));
+    }
+}
+for (int i = 0; i < MaxScores.Count; i++)
+{
+    Console.WriteLine($"{MaxScores[i].Name}: {MaxScores[i].Score}");
+}
+
+
+/*foreach (var student in students)
+{
+    Console.WriteLine($"{student.Name}: {student.Score}");
+}
+*/
