@@ -83,3 +83,23 @@ for (int i = 0; i < numbers.Length; i++)
 }
 
 */
+
+//TASK 4
+
+string[] medicins = ["Paracetamot", "Amoxicilin","Ibuprofen","Vitamin c"];
+int[] sold = [10,20,100,5];
+int max = sold[0];
+int FindIndex()
+{
+    for (int i = 1; i < sold.Length; i++)
+    {
+        if (sold[i] > max)
+        {
+            max = sold[i];
+        }
+    }
+    return max;
+}
+FindIndex();
+int index = Array.IndexOf(sold,max);
+Console.WriteLine(medicins[index]);
