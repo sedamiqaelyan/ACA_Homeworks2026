@@ -1,0 +1,49 @@
+//TASK1
+using System.Runtime.ConstrainedExecution;
+
+int[] numbers = new int[5];
+int sum = 0;
+
+List<int> even = new List<int>();
+List<int> odd = new List<int>();
+for (int i = 0; i < 5; i++)
+
+{
+    Console.WriteLine($"Enter number" + i);
+    string num = Console.ReadLine();
+    int.TryParse(num, out numbers[i]);
+    sum += numbers[i];
+
+
+    if (numbers[i] % 2 == 0)
+    {
+        even.Add(numbers[i]);
+    }
+    else
+    {
+        odd.Add(numbers[i]);
+    }
+
+
+}
+int avg = sum / numbers.Length;
+Console.WriteLine("Sum =" + sum);
+Console.WriteLine("Avg =" + avg);
+
+Console.WriteLine("Even = ");
+for (int i = 0; i < even.Count; i++)
+{
+    Console.WriteLine(even[i] + ";");
+}
+
+Console.WriteLine("Odd = ");
+for (int i = 0; i < odd.Count; i++)
+{
+    Console.WriteLine(odd[i] + ";");
+}
+
+
+
+
+
+
